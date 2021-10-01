@@ -575,29 +575,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-install-istio" class="md-nav__link">
-    1. Install Istio
+  <a href="#1-normal-installation" class="md-nav__link">
+    1. Normal Installation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-install-knative-serving" class="md-nav__link">
-    2. Install Knative Serving
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-install-cert-manager" class="md-nav__link">
-    3. Install Cert Manager
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-install-kserve" class="md-nav__link">
-    4. Install KServe
+  <a href="#2-quick-installation" class="md-nav__link">
+    2. Quick Installation
   </a>
   
 </li>
@@ -1997,29 +1983,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-install-istio" class="md-nav__link">
-    1. Install Istio
+  <a href="#1-normal-installation" class="md-nav__link">
+    1. Normal Installation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-install-knative-serving" class="md-nav__link">
-    2. Install Knative Serving
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-install-cert-manager" class="md-nav__link">
-    3. Install Cert Manager
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-install-kserve" class="md-nav__link">
-    4. Install KServe
+  <a href="#2-quick-installation" class="md-nav__link">
+    2. Quick Installation
   </a>
   
 </li>
@@ -2042,29 +2014,15 @@
                 
                 
                 <h1 id="modelmesh-installation-guide">ModelMesh Installation Guide<a class="headerlink" href="#modelmesh-installation-guide" title="Permanent link">&para;</a></h1>
-<p>KServe Serverless installation enables autoscaling based on request volume and supports scale down to and from zero. It also supports revision management
-and canary rollout based on revisions.</p>
-<p>Kubernetes 1.17 is the minimally recommended version and Knative Serving and Istio should be available on Kubernetes Cluster.</p>
-<h2 id="1-install-istio">1. Install Istio<a class="headerlink" href="#1-install-istio" title="Permanent link">&para;</a></h2>
-<p>The minimally required Istio version is 1.9.5 and you can refer to the <a href="https://knative.dev/docs/admin/install/installing-istio">Istio install guide</a>.</p>
-<h2 id="2-install-knative-serving">2. Install Knative Serving<a class="headerlink" href="#2-install-knative-serving" title="Permanent link">&para;</a></h2>
-<p>The minimally required Knative Serving version is 0.19.0 and you can refer to <a href="https://knative.dev/docs/admin/install/serving/install-serving-with-yaml/">Knative Serving install guide</a>.</p>
+<p>KServe ModelMesh installation enables high-scale, high-density and frequently-changing model serving use cases.</p>
+<p>A Kubernetes cluster is required. You will need cluster-admin authority. <a href="https://kubectl.docs.kubernetes.io/installation/kustomize/">Kustomize</a> and an <a href="https://etcd.io/">etcd</a> server on Kubernetes Cluster are also required.</p>
+<h2 id="1-normal-installation">1. Normal Installation<a class="headerlink" href="#1-normal-installation" title="Permanent link">&para;</a></h2>
+<p>The normal installation instructions are described in the <a href="https://github.com/kserve/modelmesh-serving/blob/main/docs/install/install-script.md">ModelMesh Serving install guide</a>.</p>
+<h2 id="2-quick-installation">2. Quick Installation<a class="headerlink" href="#2-quick-installation" title="Permanent link">&para;</a></h2>
+<p>A quick installation allows you to quickly get ModelMesh Serving up and running without prerequisites like etcd. The steps are described in the <a href="https://github.com/kserve/modelmesh-serving/blob/main/docs/README.md">ModelMesh Serving quick start guide</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are looking to use PodSpec fields such as nodeSelector, affinity or tolerations which are now supported in the v1beta1 API spec, 
-you need to turn on the corresponding <a href="https://knative.dev/docs/admin/serving/feature-flags">feature flags</a> in your Knative configuration.</p>
-</div>
-<h2 id="3-install-cert-manager">3. Install Cert Manager<a class="headerlink" href="#3-install-cert-manager" title="Permanent link">&para;</a></h2>
-<p>The minimally required Cert Manager version is 1.3.0 and you can refer to <a href="https://cert-manager.io/docs/installation/">Cert Manager</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Cert manager is required to provision webhook certs for production grade installation, alternatively you can run self signed certs generation script.</p>
-</div>
-<h2 id="4-install-kserve">4. Install KServe<a class="headerlink" href="#4-install-kserve" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">kubectl</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>kubectl apply -f https://github.com/kserve/kserve/releases/download/v0.7.0-rc0/kserve.yaml
-</code></pre></div>
-</div>
+<p>ModelMesh Serving is namespace scoped, meaning all of its components must exist within a single namespace and only one instance of ModelMesh Serving can be installed per namespace. For more details, you can check out the <a href="https://github.com/kserve/modelmesh-serving/blob/main/docs/install/environment.md">ModelMesh Serving environment guide</a></p>
 </div>
                 
               
